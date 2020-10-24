@@ -25,10 +25,12 @@ def contar_no_final(sequencia):
 
 def editar_sequencias(seq1, seq2):
     _inicio = contar_no_comeco(seq1)
-    _final = contar_no_final(seq2)
-
+    _final = contar_no_final(seq1)
+    # se o final for 0, precisamos ajustar
+    
     # Sim, podemos retornar duas coisas em Python
-    return seq1[_inicio:_final], seq2[_inicio:_final]
+    return (seq1[_inicio:-_final if _final != 0 else len(seq1)], 
+            seq2[_inicio:-_final if _final != 0 else len(seq2)])
 
 def teste():
     '''Este é o teste'''
@@ -48,9 +50,11 @@ def encontrar_gb(linhas):
         if '>gb' in l:
             break
         indice = indice + 1
+    return indice
 
 if __name__ == "__main__":
     # abre o arquivo para leitura
+    teste()
     with open('input/DENV1-X-gb_A75711.fasta.aln') as fasta:
         conteudo = fasta.read()
         # dividimos o conteúdo em uma lista nas quebra de linhas 
