@@ -2,3 +2,4 @@ venv/*
 output/*
 draft/*
 .DS_Store
+*/__pycache__/*
