@@ -8,7 +8,7 @@ def baixar_arquivo(url, endereco):
     if resposta.status_code == requests.codes.OK:
         with open(endereco, 'wb') as novo_arquivo:
             novo_arquivo.write(resposta.content)
-        print("Donwload finalizado. Salvo em: {}".format(endereco))
+        print("Download finalizado. Salvo em: {}".format(endereco))
     else:
         resposta.raise_for_status()
 
